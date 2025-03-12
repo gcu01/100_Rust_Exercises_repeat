@@ -61,14 +61,24 @@ impl Ticket {
         Ticket{title, description, status}
     }
 
-    pub fn title(&self) -> &str {
-        self.title.as_str()
+    pub fn get_title(&self) -> &str {
+        &self.title.as_str()
     }
-    pub fn description(&self) -> &str {
-        self.description.as_str()
+    pub fn get_description(&self) -> &str {
+        &self.description.as_str()
     }
-    pub fn status(&self) -> &str {
-        self.status.as_str()
+    pub fn get_status(&self) -> &str {
+        &self.status.as_str()
+    }
+
+    pub fn set_title(&mut self, title: String)  {
+        self.title = title;
+    }
+    pub fn set_description(&mut self, description: String)  {
+        self.description = description;
+    }
+    pub fn set_status(&mut self, status: String)  {
+        self.status = status;
     }
 }
 
@@ -110,8 +120,21 @@ mod testing {
     fn test_getters() {
         let mut t: Ticket = Ticket { title: "".to_string(), description: "".to_string(), status: String::from("")};
         Ticket::new(&mut t, "TiTLe".to_string(), "d1".to_string(), "To-Do".to_string());
-        assert_eq!("TiTLe", t.title());
-        assert_eq!("d1", t.description());
-        assert_eq!("To-Do", t.status());
+        assert_eq!("TiTLe", t.get_title());
+        assert_eq!("d1", t.get_description());
+        assert_eq!("To-Do", t.get_status());
     }
+    #[test]
+    fn test_setters(){
+        let mut t: Ticket = Ticket { title: "".to_string(), description: "".to_string(), status: String::from("")};
+        Ticket::new(&mut t, "TiTLe".to_string(), "d1".to_string(), "To-Do".to_string());
+
+        t.set_title("tItlE".into());
+        assert_eq!("tItlE", t.get_title());
+        t.set_description("des".into());
+        assert_eq!("des", t.get_description());
+        t.set_status("In Progress".into());
+        assert_eq!("In Progress", t.get_status());
+    }
+
 }
