@@ -40,6 +40,36 @@ impl Ticket {
         self.description = description;
         self.status = status;
     }
+    pub fn new_self(&mut self, title: String, description :String, status: String) -> Self {
+        if title.len()<1  {
+            panic!("the Title field should not be empty!");
+        } else if title.len() > 50 {
+            panic!("the Title field should not exceed 50 bytes");
+        }
+
+        if description.len()<1 {
+            panic!("the Description field should not be empty!");
+        } else if description.len() > 500 {
+            panic!("the Description field should not exceed 500 bytes");
+        }
+
+        match status.as_str() {
+           "To-Do" | "In Progress" | "Done"   => (),
+            _ => panic!("the Status is not one of the required values: To-Do, In Progress or Done"), 
+        }
+        
+        Ticket{title, description, status}
+    }
+
+    pub fn title(&self) -> &str {
+        self.title.as_str()
+    }
+    pub fn description(&self) -> &str {
+        self.description.as_str()
+    }
+    pub fn status(&self) -> &str {
+        self.status.as_str()
+    }
 }
 
 #[cfg(test)]
@@ -75,5 +105,13 @@ mod testing {
         let mut t: Ticket = Ticket { title: "".to_string(), description: "".to_string(), status: String::from("")};
         Ticket::new(&mut t, "".to_string(), "d1".to_string(), "s1".to_string());
         t.status;
+    }
+    #[test]
+    fn test_getters() {
+        let mut t: Ticket = Ticket { title: "".to_string(), description: "".to_string(), status: String::from("")};
+        Ticket::new(&mut t, "TiTLe".to_string(), "d1".to_string(), "To-Do".to_string());
+        assert_eq!("TiTLe", t.title());
+        assert_eq!("d1", t.description());
+        assert_eq!("To-Do", t.status());
     }
 }
