@@ -1,5 +1,6 @@
 mod exercises;
 use crate::exercises::factorial::*;
+use crate::exercises::structs::*;
 fn main() {
     let a:bool = true;
     let b:u32 = if a {
