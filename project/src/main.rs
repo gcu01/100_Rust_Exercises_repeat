@@ -1,6 +1,7 @@
 mod exercises;
 use crate::exercises::factorial::*;
 use crate::exercises::structs::*;
+use crate::exercises::order_struct::*;
 fn main() {
     let a:bool = true;
     let b:u32 = if a {
