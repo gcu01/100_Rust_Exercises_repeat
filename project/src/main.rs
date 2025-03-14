@@ -2,6 +2,7 @@ mod exercises;
 use crate::exercises::factorial::*;
 use crate::exercises::structs::*;
 use crate::exercises::order_struct::*;
+use crate::exercises::trait1::IsEven;
 fn main() {
     let a:bool = true;
     let b:u32 = if a {
@@ -9,4 +10,8 @@ fn main() {
 
     println!("using recursion, factorial(5)={}", factorial(5));
     println!("using for loop, factorial(5)={}", factorial(5));
+
+    let a: i32 = 6;
+    let b: i32 = 7;
+    println!(" a={} even ? {} \n b={} even ? {}", a, a.is_even(), b, b.is_even());
 }
