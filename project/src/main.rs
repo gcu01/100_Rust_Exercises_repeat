@@ -8,6 +8,7 @@ use crate::exercises::trait1::IsEven;
 use crate::exercises::partial_eq::*;
 use crate::exercises::from_trait::private::*;
 use crate::exercises::power::*;
+use crate::exercises::drop::*;
 fn main() {
     let a:bool = true;
     let b:u32 = if a {
