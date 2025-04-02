@@ -7,3 +7,4 @@ pub mod from_trait;
 pub mod power;
 pub mod drop;
 pub mod enums;
+pub mod match_enums;
