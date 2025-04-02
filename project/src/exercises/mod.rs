@@ -6,3 +6,4 @@ pub mod partial_eq;
 pub mod from_trait;
 pub mod power;
 pub mod drop;
+pub mod enums;
