@@ -9,3 +9,4 @@ pub mod drop;
 pub mod enums;
 pub mod match_enums;
 pub mod matching;
+pub mod if_let;
